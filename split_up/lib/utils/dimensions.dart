@@ -12,7 +12,7 @@ class Dimensions {
    * 
    * for the height ===>  screenHeight / scaling_factor;
    * eg, 
-   *  let suppose want a container which having height 220, screenHeight = 844
+   *  let suppose want a container which having height 220, screenHeight = 844 & screenWidth = 392
    *  then, 844 / 220 = 3.84
    * 
    * for the width same as above.
@@ -43,6 +43,9 @@ class Dimensions {
   
   static double height45 = screenHeight / 18.7;
   static double width45 = screenWidth / 8.71;
+
+  static double height50 = screenHeight / 16.88;
+  static double width50 = screenWidth / 7.84;
 
   /* Radius */
   static double radius5 = screenHeight / 168.8;

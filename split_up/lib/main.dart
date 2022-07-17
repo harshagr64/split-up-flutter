@@ -6,8 +6,11 @@ import 'package:split_up/home/home_page.dart';
 import 'package:split_up/pages/friends_page.dart';
 import 'package:split_up/pages/mobile_no_page.dart';
 import 'package:split_up/routes/route_helper.dart';
+import 'package:split_up/helper/dependencies.dart' as dependencies;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dependencies.init();
   runApp(const SplitUp());
 }
 

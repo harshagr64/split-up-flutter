@@ -1,6 +1,9 @@
 import 'package:get/state_manager.dart';
 
-class AuthController extends GetxController {
+class MobileController extends GetxController {
+  String _mobileNo = "";
+  String get mobileNo => _mobileNo;
+
   bool _isMobileValid = false;
   bool get isMobileValid => _isMobileValid;
 
@@ -14,4 +17,8 @@ class AuthController extends GetxController {
     }
     update();
   }
+
+  // void submitForm(int flag){
+  //   if()
+  // }
 }

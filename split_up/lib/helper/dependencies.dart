@@ -1,7 +1,11 @@
 import 'package:get/get.dart';
-import 'package:split_up/controller/auth_controller.dart';
+import 'package:split_up/controller/mobile_controller.dart';
+import 'package:split_up/controller/otp_controller.dart';
 
 Future<void> init() async {
-  // auth controller
-  Get.lazyPut(() => AuthController());
+  // mobile no. controller
+  Get.lazyPut(() => MobileController());
+
+  // otp controller
+  Get.lazyPut(() => OtpController());
 }

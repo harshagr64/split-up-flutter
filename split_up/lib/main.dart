@@ -5,6 +5,9 @@ import 'package:split_up/home/group_page.dart';
 import 'package:split_up/home/home_page.dart';
 import 'package:split_up/pages/friends_page.dart';
 import 'package:split_up/pages/mobile_no_page.dart';
+import 'package:split_up/pages/new_user_page.dart';
+import 'package:split_up/pages/otp_page.dart';
+// import 'package:split_up/pages/svg_home.dart';
 import 'package:split_up/routes/route_helper.dart';
 import 'package:split_up/helper/dependencies.dart' as dependencies;
 
@@ -25,7 +28,7 @@ class SplitUp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MobileNoPage(),
+      home: const NewUserPage(),
       // initialRoute: Demo,
       getPages: RouteHelper.routes,
     );

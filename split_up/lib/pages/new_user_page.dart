@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/state_manager.dart';
-import 'package:split_up/controller/mobile_controller.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:split_up/utils/colors.dart';
-import 'package:split_up/utils/custom_button.dart';
 import 'package:split_up/utils/custom_text_field.dart';
 import 'package:split_up/utils/dimensions.dart';
 import 'package:split_up/widgets/big_text.dart';
 import 'package:split_up/widgets/small_text.dart';
 
-class MobileNoPage extends StatelessWidget {
-  const MobileNoPage({Key? key}) : super(key: key);
+import '../controller/mobile_controller.dart';
+
+class NewUserPage extends StatelessWidget {
+  const NewUserPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // controller for mobile field
-    final TextEditingController mobileFieldControlller =
-        TextEditingController();
-
+    final TextEditingController textEditingController = TextEditingController();
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Container(
-        padding: EdgeInsets.all(Dimensions.height20),
+        padding: EdgeInsets.only(
+            left: Dimensions.height20,
+            right: Dimensions.height20,
+            top: Dimensions.height20 * 2,
+            bottom: Dimensions.height10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,7 +39,7 @@ class MobileNoPage extends StatelessWidget {
                     height: Dimensions.height50 * 5,
                     // color: Colors.red,
                     child: Image.asset(
-                      "assets/images/sign-in-screen.png",
+                      "assets/images/new-user-screen.png",
                     ),
                   ),
                 ),
@@ -55,14 +56,14 @@ class MobileNoPage extends StatelessWidget {
               ],
             ),
 
-            // mobile no. widget
+            // name text field widget
             GetBuilder<MobileController>(
               builder: (mobileController) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BigText(
-                      text: "Get started with Split Up",
+                      text: "Create Account",
                       color: AppColors.blueColor,
                       fontWeight: FontWeight.w600,
                     ),
@@ -70,7 +71,7 @@ class MobileNoPage extends StatelessWidget {
                       height: Dimensions.height20,
                     ),
                     SmallText(
-                      text: 'Enter your mobile number',
+                      text: 'Enter your Name',
                       color: AppColors.blueColor.withOpacity(0.7),
                       size: Dimensions.font16,
                       fontWeight: FontWeight.w500,
@@ -79,14 +80,14 @@ class MobileNoPage extends StatelessWidget {
                       height: Dimensions.height10,
                     ),
 
-                    // mobile number input field widget
+                    // name input field widget
                     Container(
                       height: Dimensions.height45,
                       child: CustomTextField(
-                        textEditingController: mobileFieldControlller,
-                        keyboardType: TextInputType.number,
-                        prefixIcon: Icons.phone,
-                        maxLength: 10,
+                        textEditingController: textEditingController,
+                        keyboardType: TextInputType.text,
+                        prefixIcon: null,
+                        maxLength: 200,
                         onChangedFun: (text) {
                           print("$text");
                           mobileController.validate(text);
@@ -96,7 +97,7 @@ class MobileNoPage extends StatelessWidget {
                     SizedBox(
                       height: Dimensions.height20,
                     ),
-                    // continue button widget
+                    // sign up button widget
                     GestureDetector(
                       onTap: () {
                         // mobileController.submitForm(1);
@@ -113,7 +114,7 @@ class MobileNoPage extends StatelessWidget {
                               BorderRadius.circular(Dimensions.height50 * 0.5),
                         ),
                         child: SmallText(
-                          text: "Continue",
+                          text: "Sign Up",
                           color: AppColors.greyColor,
                           size: Dimensions.font18,
                           fontWeight: FontWeight.w500,
@@ -128,5 +129,45 @@ class MobileNoPage extends StatelessWidget {
         ),
       ),
     );
+    // return Scaffold(
+    //   body: Container(
+    //     padding: EdgeInsets.only(top: 80, left: 20, right: 20, bottom: 10),
+    //     child: Column(
+    //       crossAxisAlignment: CrossAxisAlignment.start,
+    //       children: [
+    //         // Create account text widget
+    //         Text(
+    //           "Create \nAccount",
+    //           style: TextStyle(
+    //             fontSize: 34,
+    //             fontFamily: 'Dosis',
+    //             fontWeight: FontWeight.bold,
+    //             color: AppColors.blueColor,
+    //           ),
+    //         ),
+    //         SizedBox(
+    //           height: Dimensions.height30,
+    //         ),
+    //         SmallText(
+    //           text: 'Your Name',
+    //           size: 16,
+    //           color: AppColors.blueColor,
+    //           fontWeight: FontWeight.w500,
+    //         ),
+    //         SizedBox(
+    //           height: Dimensions.height10,
+    //         ),
+    //         CustomTextField(
+    //           prefixIcon: null,
+    //           maxLength: 200,
+    //           textEditingController: textEditingController,
+    //           onChangedFun: (text) {},
+    //           hinText: "Enter  name",
+    //           keyboardType: TextInputType.text,
+    //         )
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }

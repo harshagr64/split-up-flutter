@@ -47,3 +47,4 @@ app.*.map.json
 
 # Firebase google service json file
 /android/app/google-services.json
+.vscode/

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:split_up/home/demo.dart';
@@ -13,6 +14,9 @@ import 'package:split_up/helper/dependencies.dart' as dependencies;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // before we can use firebase, we need to initialize it 
+  await Firebase.initializeApp();
+  // we also need to initialize controllers as these are dependency for our app
   await dependencies.init();
   runApp(const SplitUp());
 }
@@ -28,8 +32,8 @@ class SplitUp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const NewUserPage(),
-      // initialRoute: Demo,
+      // home: const MobileNoPage(),
+      initialRoute: RouteHelper.mobilePage,
       getPages: RouteHelper.routes,
     );
   }

@@ -98,9 +98,13 @@ class MobileNoPage extends StatelessWidget {
                     ),
                     // continue button widget
                     GestureDetector(
-                      onTap: () {
-                        // mobileController.submitForm(1);
-                      },
+                      onTap: mobileController.isMobileValid
+                          ? () {
+                              mobileController.submitForm();
+                            }
+                          : () {
+                              print("Invalid Mobile No.");
+                            },
                       child: Container(
                         width: double.infinity,
                         height: Dimensions.height50,

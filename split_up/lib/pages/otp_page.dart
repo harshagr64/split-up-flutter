@@ -81,22 +81,30 @@ class OtpPage extends StatelessWidget {
                     Padding(
                         padding: EdgeInsets.only(bottom: Dimensions.height10),
                         // submit button widget
-                        child: Container(
-                          width: double.infinity,
-                          height: Dimensions.height50,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: otpController.isOtpValid
-                                ? AppColors.orangeColor
-                                : AppColors.lightBlueColor.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(
-                                Dimensions.height50 * 0.5),
-                          ),
-                          child: SmallText(
-                            text: "Verify and Continue",
-                            color: AppColors.greyColor,
-                            size: Dimensions.font18,
-                            fontWeight: FontWeight.w500,
+                        child: GestureDetector(
+                          onTap: otpController.isOtpValid
+                              ? () {
+                                  print("hello");
+                                  otpController.submitOtp();
+                                }
+                              : () {},
+                          child: Container(
+                            width: double.infinity,
+                            height: Dimensions.height50,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: otpController.isOtpValid
+                                  ? AppColors.orangeColor
+                                  : AppColors.lightBlueColor.withOpacity(0.3),
+                              borderRadius: BorderRadius.circular(
+                                  Dimensions.height50 * 0.5),
+                            ),
+                            child: SmallText(
+                              text: "Verify and Continue",
+                              color: AppColors.greyColor,
+                              size: Dimensions.font18,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         )),
                   ],
